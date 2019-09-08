@@ -31,3 +31,13 @@
 <br>
 
 <%= link_to 'New Event', new_event_path %>
+
+
+<%= month_calendar events: @events do |date, meetings| %>
+  <%= date %>
+  <% meetings.each do |meeting| %>
+  <div>
+    <%=link_to  meeting.title, event_path(meeting.id) %>
+  </div>
+  <% end %>
+<% end %>
